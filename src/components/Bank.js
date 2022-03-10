@@ -1,20 +1,17 @@
-import { hasSelectionSupport } from "@testing-library/user-event/dist/utils"
+
 import { useState } from "react"
 
 const Bank = () => {
 
-
     const [total, setTotal] = useState(100)
     const [newCalc, setNewCalc] = useState("")
-
-
 
     let add = () => {
         setTotal(prevValue => {
             console.log("Test add " + newCalc)
             return (prevValue + newCalc);
         })
-        setNewCalc("")
+        setNewCalc("")  //resets input value
     }
 
     let deduct = () => {
@@ -22,7 +19,8 @@ const Bank = () => {
             console.log("Test deduct " + prevValue)
             return (prevValue - newCalc)
         })
-        setNewCalc("")
+        setNewCalc("") //resets input value
+
     }
 
     return (
